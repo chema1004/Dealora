@@ -52,6 +52,14 @@ Actualmente estamos trabajando en las funcionalidades de autenticación, categor
 Estudiante de Ingeniería en Ciencias Computacionales, apasionado por el desarrollo con propósito social y empresarial. Encargado de [Dimexicoayuda](https://dimexicoayuda.org) y creador de proyectos tecnológicos como **Dealora** y **Clip2Sound**.
 
 ---
+## 💡 Contribuciones
+
+¡Siempre son bienvenidas!  
+Si quieres colaborar, abre un issue o haz un pull request.
+
+---
+
+## 📣 ¡Únete a la revolución del ahorro con Dealora!
 
 ## 📬 Contacto
 
