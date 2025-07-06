@@ -29,7 +29,8 @@ Actualmente en desarrollo 🚧. Pronto disponible para iOS y Android.
 ¿Tienes una empresa y quieres aparecer en Dealora?  
 ¿Ideas o sugerencias?  
 Contáctanos por correo o redes sociales.
-
+ruisco04@gmail.com
+https://www.instagram.com/_chema04_/
 ---
 
 ## 🛠️ Tecnologías utilizadas
