@@ -1,52 +1,64 @@
 # 📱 Dealora
 
-**Dealora** es una aplicación móvil que te conecta con **cupones exclusivos** y **grandes descuentos** en una amplia variedad de servicios y productos. Nuestro objetivo es ayudarte a **ahorrar** mientras disfrutas de lo mejor que ofrecen empresas de:
-
-- 🏋️ Fitness  
-- 🍽️ Restaurantes  
-- 💇 Belleza  
-- 🎉 Entretenimiento
+**Dealora** es una aplicación móvil que ofrece acceso a **cupones exclusivos** y **descuentos en servicios y productos** de diversas categorías. Diseñada para conectar a los usuarios con las mejores promociones de empresas locales y nacionales, Dealora busca convertirse en la app de referencia para quienes desean ahorrar mientras disfrutan experiencias de calidad.
 
 ---
 
-## 🚀 Características principales
+## 🎯 ¿Qué ofrece Dealora?
 
-- Acceso fácil a cupones y promociones actualizadas.
-- Categorías organizadas para una mejor experiencia de usuario.
-- Soporte de geolocalización para encontrar descuentos cerca de ti.
-- Sistema de notificaciones para que nunca pierdas una oferta.
+- 🏋️‍♀️ Cupones de **gimnasios** y centros de entrenamiento.
+- 🍽️ Promociones en **restaurantes** y cafés.
+- 💇 Descuentos en **servicios de belleza** y cuidado personal.
+- 🎭 Entradas y rebajas en **eventos de entretenimiento**.
 
----
-
-## 📦 Estado del Proyecto
-
-Actualmente en desarrollo 🚧. Pronto disponible para iOS y Android.
+Todo en un solo lugar, desde tu dispositivo móvil.
 
 ---
 
-## 🤝 Contacto
+## 🧠 ¿Por qué Dealora?
 
-¿Tienes una empresa y quieres aparecer en Dealora?  
-¿Ideas o sugerencias?  
-Contáctanos por correo o redes sociales.
-ruisco04@gmail.com
-https://www.instagram.com/_chema04_/
----
-
-## 🛠️ Tecnologías utilizadas
-
-- Flutter (Front-end)
-- Firebase (Back-end)
-- Google Maps API (Ubicación)
+El objetivo de Dealora es **democratizar el acceso al ahorro**, impulsando el comercio local y brindando a los usuarios una experiencia fácil, rápida y organizada para encontrar descuentos sin complicaciones.
 
 ---
 
-## 💡 Contribuciones
+## 🔧 Tecnologías utilizadas
 
-¡Siempre son bienvenidas!  
-Si quieres colaborar, abre un issue o haz un pull request.
+- **Flutter** — Desarrollo móvil multiplataforma  
+- **Firebase** — Autenticación, base de datos y backend  
+- **Google Maps API** — Ubicación de ofertas y negocios cercanos  
+- **GitHub** — Control de versiones y colaboración  
 
 ---
 
-## 📣 ¡Únete a la revolución del ahorro con Dealora!
+## 🛠️ Estado actual del proyecto
 
+> 📌 En desarrollo activo  
+Actualmente estamos trabajando en las funcionalidades de autenticación, categorización de promociones y ubicación por zona geográfica.
+
+---
+
+## 📈 Próximas mejoras
+
+- Panel administrativo para negocios afiliados  
+- Filtros inteligentes por intereses y ubicación  
+- Notificaciones personalizadas  
+- Versión web progresiva (PWA)
+
+---
+
+## 🙋 Sobre el creador
+
+**Luis Francisco "Chema" Rosas Vega**  
+Estudiante de Ingeniería en Ciencias Computacionales, apasionado por el desarrollo con propósito social y empresarial. Encargado de [Dimexicoayuda](https://dimexicoayuda.org) y creador de proyectos tecnológicos como **Dealora** y **Clip2Sound**.
+
+---
+
+## 📬 Contacto
+
+- 📧 Correo: [ruisco04@gmail.com](mailto:ruisco04@gmail.com)  
+- 📱 Instagram: [@_chema04_](https://www.instagram.com/_chema04_/)
+
+---
+
+> *“Juntos lograremos el cambio.”*  
+> — Chema
