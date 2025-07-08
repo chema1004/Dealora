@@ -65,6 +65,7 @@ Si quieres colaborar, abre un issue o haz un pull request.
 
 - 📧 Correo: [ruisco04@gmail.com](mailto:ruisco04@gmail.com)  
 - 📱 Instagram: [@_chema04_](https://www.instagram.com/_chema04_/)
+  Alan
 
 ---
 
