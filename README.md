@@ -48,12 +48,12 @@ Actualmente estamos trabajando en las funcionalidades de autenticación, categor
 
 ## 🙋 Sobre el creador
 
-###👤 **Luis Francisco "Chema" Rosas Vega**  
+👤 **Luis Francisco "Chema" Rosas Vega**  
 Estudiante de Ingeniería en Ciencias Computacionales, apasionado por el desarrollo con propósito social y empresarial. Encargado de [Dimexicoayuda](https://dimexicoayuda.org) y creador de proyectos tecnológicos como **Dealora** y **Clip2Sound**.
 - 📧 Correo: [ruisco04@gmail.com](mailto:ruisco04@gmail.com)  
 - 📱 Instagram: [@_chema04_](https://www.instagram.com/_chema04_/)
 
-###👤 **Alan Emmanuel Marin Lemus**
+👤 **Alan Emmanuel Marin Lemus**
 Futuro Ingeniero en Computación, apasionado por el desarrollo de tecnología eficiente y con impacto social. Especialista en resolución de problemas y organización técnica de proyectos.Cocreador de Dealora, app que impulsa el ahorro y el comercio local.
 - 📧 Correo: [almarinlemus@gmail.com](mailto:almarinlemus@gmail.com)  
 
