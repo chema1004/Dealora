@@ -54,7 +54,7 @@ Estudiante de Ingeniería en Ciencias Computacionales, apasionado por el desarro
 - 📱 Instagram: [@_chema04_](https://www.instagram.com/_chema04_/)
 
 👤 **Alan Emmanuel Marin Lemus**  
-Futuro Ingeniero en Computación, apasionado por el desarrollo de tecnología eficiente y con impacto social. Especialista en resolución de problemas y organización técnica de proyectos.Cocreador de Dealora, app que impulsa el ahorro y el comercio local.
+Futuro Ingeniero en Computación, apasionado por el desarrollo de tecnología eficiente y con impacto social. Especialista en resolución de problemas y organización técnica de proyectos. Cocreador de **Dealora**, app que impulsa el ahorro y el comercio local.
 - 📧 Correo: [almarinlemus@gmail.com](mailto:almarinlemus@gmail.com)  
 
 ---
