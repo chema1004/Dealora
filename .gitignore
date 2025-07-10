@@ -42,6 +42,7 @@ backend/.env.*
 *.bak
 *.orig
 *.old
+!**/.gitkeep
 
 # === Python virtualenv (por si usas scripts o APIs en Python) ===
 venv/
@@ -75,4 +76,4 @@ out/
 
 # === Scripts locales ===
 verificarProyecto.sh
-creargitkeep.sh
+
