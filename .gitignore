@@ -76,4 +76,4 @@ out/
 
 # === Scripts locales ===
 verificarProyecto.sh
-
+agregarGitkeep.sh
