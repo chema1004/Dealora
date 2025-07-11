@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart'; // Asegúrate de que este archivo exista
+import 'Cliente/screens/home_screen_clientes.dart'; // Asegúrate de que este archivo exista
 
 void main() {
   runApp(const MyApp());
