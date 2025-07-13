@@ -13,6 +13,7 @@ frontend/dist/
 backend/dist/
 
 # === Firebase ===
+backend/config/*.json
 frontend/.firebase/
 frontend/firebase.json
 frontend/firestore.indexes.json
