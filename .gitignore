@@ -85,3 +85,4 @@ backend/build/*
 !backend/build/.gitkeep
 backend/.env/*
 !backend/.env/.gitkeep
+.env
