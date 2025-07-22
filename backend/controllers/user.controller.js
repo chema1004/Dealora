@@ -1,73 +1,162 @@
-const { db } = require('../server');
+const UserService = require('../services/user.service');
+const ResponseHelper = require('../utils/response.helper');
+const Logger = require('../utils/logger');
 
-// Create a new user
-const createUser = async (req, res) => {
-  const { uid, name, email, type } = req.body;
+class UserController {
+  /**
+   * Crear un nuevo usuario
+   */
+  async createUser(req, res) {
+    try {
+      const { uid, name, email, type } = req.body;
 
-  try {
-    const userData = {
-      uid,
-      name,
-      email,
-      type, // "client" or "company"
-      createdAt: new Date()
-    };
+      // Validaciones básicas
+      if (!uid || !name || !email || !type) {
+        return ResponseHelper.validationError(res, [
+          'UID, nombre, email y tipo son requeridos'
+        ]);
+      }
 
-    await db.collection('users').doc(uid).set(userData);
+      const userData = {
+        uid,
+        name: name.trim(),
+        email: email.toLowerCase().trim(),
+        type
+      };
 
-    res.status(201).json({
-      message: 'User created successfully',
-      data: userData
-    });
-  } catch (error) {
-    res.status(500).json({
-      error: 'Error creating user',
-      detail: error.message
-    });
-  }
-};
+      const newUser = await UserService.createUser(userData);
+      
+      return ResponseHelper.success(
+        res, 
+        newUser, 
+        'Usuario creado exitosamente', 
+        201
+      );
 
-// Get all users
-const getUsers = async (req, res) => {
-  try {
-    const snapshot = await db.collection('users').get();
-
-    if (snapshot.empty) {
-      return res.status(200).json({ message: 'No users found' });
+    } catch (error) {
+      Logger.error('Error en UserController.createUser:', error);
+      
+      if (error.message === 'El usuario ya existe') {
+        return ResponseHelper.conflict(res, error.message);
+      }
+      
+      return ResponseHelper.error(res, 'Error interno del servidor');
     }
-
-    const users = snapshot.docs.map(doc => doc.data());
-    res.status(200).json({ users });
-  } catch (error) {
-    res.status(500).json({
-      error: 'Error fetching users',
-      detail: error.message
-    });
   }
-};
 
-// Get a user by UID
-const getUserById = async (req, res) => {
-  const { uid } = req.params;
+  /**
+   * Obtener todos los usuarios
+   */
+  async getUsers(req, res) {
+    try {
+      const users = await UserService.getAllUsers();
+      
+      return ResponseHelper.success(
+        res, 
+        { users, count: users.length }, 
+        'Usuarios obtenidos exitosamente'
+      );
 
-  try {
-    const doc = await db.collection('users').doc(uid).get();
-
-    if (!doc.exists) {
-      return res.status(404).json({ error: 'User not found' });
+    } catch (error) {
+      Logger.error('Error en UserController.getUsers:', error);
+      return ResponseHelper.error(res, 'Error interno del servidor');
     }
-
-    res.status(200).json({ user: doc.data() });
-  } catch (error) {
-    res.status(500).json({
-      error: 'Error retrieving user',
-      detail: error.message
-    });
   }
-};
 
-module.exports = {
-  createUser,
-  getUsers,
-  getUserById
-};
+  /**
+   * Obtener usuario por UID
+   */
+  async getUserById(req, res) {
+    try {
+      const { uid } = req.params;
+
+      if (!uid) {
+        return ResponseHelper.validationError(res, ['UID es requerido']);
+      }
+
+      const user = await UserService.getUserById(uid);
+      
+      return ResponseHelper.success(
+        res, 
+        { user }, 
+        'Usuario obtenido exitosamente'
+      );
+
+    } catch (error) {
+      Logger.error('Error en UserController.getUserById:', error);
+      
+      if (error.message === 'Usuario no encontrado') {
+        return ResponseHelper.notFound(res, error.message);
+      }
+      
+      return ResponseHelper.error(res, 'Error interno del servidor');
+    }
+  }
+
+  /**
+   * Actualizar usuario
+   */
+  async updateUser(req, res) {
+    try {
+      const { uid } = req.params;
+      const updateData = req.body;
+
+      if (!uid) {
+        return ResponseHelper.validationError(res, ['UID es requerido']);
+      }
+
+      // Remover campos que no se pueden actualizar
+      delete updateData.uid;
+      delete updateData.createdAt;
+
+      const updatedUser = await UserService.updateUser(uid, updateData);
+      
+      return ResponseHelper.success(
+        res, 
+        { user: updatedUser }, 
+        'Usuario actualizado exitosamente'
+      );
+
+    } catch (error) {
+      Logger.error('Error en UserController.updateUser:', error);
+      
+      if (error.message === 'Usuario no encontrado') {
+        return ResponseHelper.notFound(res, error.message);
+      }
+      
+      return ResponseHelper.error(res, 'Error interno del servidor');
+    }
+  }
+
+  /**
+   * Desactivar usuario
+   */
+  async deactivateUser(req, res) {
+    try {
+      const { uid } = req.params;
+
+      if (!uid) {
+        return ResponseHelper.validationError(res, ['UID es requerido']);
+      }
+
+      const result = await UserService.deactivateUser(uid);
+      
+      return ResponseHelper.success(
+        res, 
+        result, 
+        'Usuario desactivado exitosamente'
+      );
+
+    } catch (error) {
+      Logger.error('Error en UserController.deactivateUser:', error);
+      
+      if (error.message === 'Usuario no encontrado') {
+        return ResponseHelper.notFound(res, error.message);
+      }
+      
+      return ResponseHelper.error(res, 'Error interno del servidor');
+    }
+  }
+}
+
+module.exports = new UserController();

@@ -1,6 +1,7 @@
 const express = require('express');
 const Logger = require('./utils/logger');
 const corsMiddleware = require('./middlewares/cors.middleware');
+const ResponseHelper = require('./utils/response.helper');
 const app = express();
 require('dotenv').config();
 
@@ -19,7 +20,7 @@ app.use(express.urlencoded({ extended: true })); // Para formularios
 // Rutas de autenticación
 app.use('/api/auth', require('./routes/auth.routes'));
 
-// Rutas existentes
+// Rutas de usuarios
 app.use('/api', require('./routes/user.routes'));
 
 // Ruta de health check
@@ -34,27 +35,15 @@ app.get('/health', (req, res) => {
 
 // Middleware para rutas no encontradas
 app.use('*', (req, res) => {
-  res.status(404).json({
-    error: 'Ruta no encontrada',
-    path: req.originalUrl,
-    method: req.method
-  });
+  ResponseHelper.notFound(res, `Ruta ${req.method} ${req.originalUrl} no encontrada`);
 });
 
 // Middleware de manejo de errores
 app.use((error, req, res, next) => {
   Logger.error('Error no manejado:', error);
   
-  res.status(500).json({
-    error: 'Error interno del servidor',
-    message: process.env.NODE_ENV === 'development' ? error.message : 'Algo salió mal'
-  });
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  Logger.info(`🚀 Dealora Backend iniciado en puerto ${PORT}`);
-  Logger.info(`🌍 Entorno: ${process.env.NODE_ENV || 'development'}`);
+  const message = process.env.NODE_ENV === 'development' ? error.message : 'Error interno del servidor';
+  ResponseHelper.error(res, message);
 });
 
 module.exports = app;
