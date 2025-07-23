@@ -2,11 +2,8 @@ const express = require('express');
 const Logger = require('./utils/logger');
 const corsMiddleware = require('./middlewares/cors.middleware');
 const ResponseHelper = require('./utils/response.helper');
-const app = express();
-require('dotenv').config();
-
 // Middleware de logging para requests
-app.use((req, res, next) => {
+require('dotenv').config();
   Logger.request(req);
   next();
 });
@@ -29,7 +26,8 @@ app.get('/health', (req, res) => {
     status: 'OK',
     message: 'Dealora Backend funcionando correctamente',
     timestamp: new Date().toISOString(),
-    version: '1.0.0'
+    version: '1.0.0',
+    environment: process.env.NODE_ENV || 'development'
   });
 });
 
