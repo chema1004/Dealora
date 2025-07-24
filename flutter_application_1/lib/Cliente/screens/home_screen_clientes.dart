@@ -78,6 +78,11 @@ class HomeScreen extends StatelessWidget {
                   height: 80,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
+
+
+
+
+                    
                     children: const [
                       CategoryIcon(label: 'Fitness', icon: Icons.fitness_center),
                       CategoryIcon(label: 'Restaurant', icon: Icons.restaurant),
