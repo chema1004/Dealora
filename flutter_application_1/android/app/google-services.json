@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "192896668115",
+    "project_id": "dealora-54a9b",
+    "storage_bucket": "dealora-54a9b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192896668115:android:4299bffc02d5cd249a5f26",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "192896668115-ip1qml0qunrp0dk8762h2h3ctcrm5o08.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChcKmceV_wSQBdxW0nxklxiPhCvkyI86c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "192896668115-ip1qml0qunrp0dk8762h2h3ctcrm5o08.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

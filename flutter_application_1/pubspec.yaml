@@ -1,7 +1,7 @@
 name: flutter_application_1
 description: A new Flutter project for Dealora
 
-publish_to: 'none' # No lo publiques por ahora
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
@@ -11,6 +11,12 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.6
+
+  # 🔗 Firebase
+  firebase_core: ^2.31.0        # Inicialización de Firebase
+  firebase_auth: ^4.17.0        # Inicio de sesión / registro
+  cloud_firestore: ^4.16.0      # Base de datos en la nube
+  google_sign_in: ^6.1.5        # Login rápido con Google
 
 dev_dependencies:
   flutter_test:
