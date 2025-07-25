@@ -93,3 +93,30 @@ class _LoginScreenState extends State<LoginScreen> {
                   border: OutlineInputBorder(),
                 ),
               ),
+              const SizedBox(height: 16),
+              if (_error != null)
+                Text(
+                  _error!,
+                  style: const TextStyle(color: Colors.red),
+                ),
+              const SizedBox(height: 16),
+              _isLoading
+                  ? const CircularProgressIndicator()
+                  : ElevatedButton(
+                      onPressed: loginWithEmailPassword,
+                      child: const Text('Iniciar sesión'),
+                    ),
+              const SizedBox(height: 16),
+              _isLoading
+                  ? const SizedBox.shrink()
+                  : ElevatedButton(
+                      onPressed: loginWithGoogle,
+                      child: const Text('Iniciar con Google'),
+                    ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
