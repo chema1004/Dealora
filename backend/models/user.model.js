@@ -1,7 +1,8 @@
-const { db } = require('../server');
+const { db } = require('../config/firebase.config');
 
 class UserModel {
-  constructor() {
+  constructor(db) {
+    if (!db) throw new Error('❌ Firestore db is undefined in UserModel constructor');
     this.collection = db.collection('users');
   }
 
@@ -123,4 +124,4 @@ class UserModel {
   }
 }
 
-module.exports = new UserModel();
+module.exports = new UserModel(db);

@@ -24,4 +24,5 @@ router.get('/users/:uid', verifyFirebaseToken, userController.getUserById);
  */
 router.post('/users', verifyFirebaseToken, userController.createUser);
 
+console.log('userRoutes_ok');
 module.exports = router;

@@ -1,5 +1,5 @@
 const app = require('./app');
-const { admin, db } = require('./config/firebase');
+const { admin, db } = require('./config/firebase.config');
 const Logger = require('./utils/logger');
 require('dotenv').config();
 

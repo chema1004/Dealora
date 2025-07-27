@@ -77,6 +77,7 @@ out/
 # === Scripts locales ===
 verificarProyecto.sh
 agregarGitkeep.sh
+backend/generateTokens.js
 
 # Permitir .gitkeep dentro de carpetas ignoradas en backend
 backend/node_modules/*

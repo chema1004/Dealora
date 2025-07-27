@@ -1,5 +1,4 @@
-const { admin } = require('../server');
-const UserModel = require('../models/user.model');
+const userModel = require('../models/user.model');
 
 class AuthController {
   /**
@@ -8,9 +7,14 @@ class AuthController {
   async register(req, res) {
     try {
       const { uid, email, name, type, companyData, provider = 'email' } = req.body;
+      
+      //Validacion de datos
+      if (!uid || !email || !name || !type) {
+        return res.status(400).json({ error: 'Faltan campos requeridos para el registro' });
+      }
 
       // Verificar si el usuario ya existe en Firestore
-      const existingUser = await UserModel.getUserByUid(uid);
+      const existingUser = await userModel.getUserByUid(uid);
       
       if (existingUser) {
         return res.status(200).json({
@@ -21,7 +25,7 @@ class AuthController {
       }
 
       // Verificar si el email ya está en uso por otro usuario
-      const userByEmail = await UserModel.getUserByEmail(email);
+      const userByEmail = await userModel.getUserByEmail(email);
       if (userByEmail && userByEmail.uid !== uid) {
         return res.status(409).json({
           error: 'El email ya está registrado con otra cuenta',
@@ -59,7 +63,7 @@ class AuthController {
       }
 
       // Crear usuario en Firestore
-      const newUser = await UserModel.createUser(userData);
+      const newUser = await userModel.createUser(userData);
 
       res.status(201).json({
         message: 'Usuario registrado exitosamente',
@@ -84,7 +88,7 @@ class AuthController {
       const { uid } = req.user; // Viene del middleware de autenticación
 
       // Buscar usuario en Firestore
-      const user = await UserModel.getUserByUid(uid);
+      const user = await userModel.getUserByUid(uid);
 
       if (!user) {
         return res.status(404).json({
@@ -102,12 +106,12 @@ class AuthController {
       }
 
       // Actualizar último login
-      await UserModel.updateUser(uid, {
+      await userModel.updateUser(uid, {
         lastLogin: new Date()
       });
 
       // Obtener datos actualizados
-      const updatedUser = await UserModel.getUserByUid(uid);
+      const updatedUser = await userModel.getUserByUid(uid);
 
       res.status(200).json({
         message: 'Login exitoso',
@@ -130,7 +134,7 @@ class AuthController {
     try {
       const { uid } = req.user;
 
-      const user = await UserModel.getUserByUid(uid);
+      const user = await userModel.getUserByUid(uid);
 
       if (!user) {
         return res.status(404).json({
@@ -167,7 +171,7 @@ class AuthController {
       delete updateData.createdAt;
       delete updateData.isActive;
 
-      const updatedUser = await UserModel.updateUser(uid, updateData);
+      const updatedUser = await userModel.updateUser(uid, updateData);
 
       res.status(200).json({
         message: 'Perfil actualizado exitosamente',
@@ -203,6 +207,7 @@ class AuthController {
       });
     }
   }
+  
 }
 
 module.exports = new AuthController();
